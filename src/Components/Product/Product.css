@@ -1,0 +1,17 @@
+.card-img {
+  border-radius: 1rem;
+}
+
+.cart-btn {
+  background-color: #ecb86a;
+  color: #0e161a;
+  font-size: 15px;
+}
+
+.cart-btn:hover {
+    background-color: #f5a938
+}
+
+.cart-icon {
+  font-size: 1.25rem;
+}
