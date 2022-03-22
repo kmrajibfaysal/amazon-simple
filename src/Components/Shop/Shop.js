@@ -16,13 +16,19 @@ function Shop() {
     };
 
     return (
-        <div className="shop-container mt-4">
-            <div className="products-container">
-                {products.map((product) => (
-                    <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />
-                ))}
+        <div className="shop-container mt-4 mx-2 row">
+            <div className="products-container col-md-10">
+                <div className="row">
+                    {products.map((product) => (
+                        <Product
+                            key={product.id}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        />
+                    ))}
+                </div>
             </div>
-            <div className="cart-container">Order Summery</div>
+            <div className="cart-container col-md-2">Order Summery</div>
         </div>
     );
 }
