@@ -5,7 +5,7 @@ import './Product.css';
 function Product({ product, handleAddToCart }) {
     const { img, name, seller, price, ratings } = product;
     return (
-        <Card style={{ width: '18rem' }} className="rounded-3 col-md-4 col-lg-4 m-2 g-0">
+        <Card style={{ width: '18rem' }} className="rounded-3 col-md-4 col-lg-4 mt-2 mx-4 g-0">
             <Card.Img variant="top" className="p-2 card-img" src={img} />
             <Card.Body className="d-flex flex-column">
                 <Card.Title>{name}</Card.Title>
