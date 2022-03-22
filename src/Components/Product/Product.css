@@ -8,7 +8,9 @@
   font-size: 15px;
 }
 
-.cart-btn:hover {
+.cart-btn:hover,
+.cart-btn:active,
+.cart-btn:focus {
   background-color: #f5a938;
 }
 
