@@ -20,7 +20,7 @@ function Shop() {
 
     return (
         <div className="shop-container mt-4 mx-2 row">
-            <div className="products-container col-md-10">
+            <div className="products-container col-md-9 col-lg-10">
                 <div className="row">
                     {products.map((product) => (
                         <Product

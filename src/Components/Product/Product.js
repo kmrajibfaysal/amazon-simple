@@ -25,4 +25,6 @@ function Product({ product, handleAddToCart }) {
     );
 }
 
+// here handleAddToCart event handler is pulled from parent component Shop js
+
 export default Product;
