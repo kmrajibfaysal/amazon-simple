@@ -1,3 +1,6 @@
 .cart-container {
   background-color: rgba(255, 153, 0, 0.3);
 }
+.fw-icon {
+  font-size: 1.25rem;
+}

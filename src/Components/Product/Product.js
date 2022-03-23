@@ -19,7 +19,7 @@ function Product({ product, handleAddToCart }) {
                 </Card.Text>
             </Card.Body>
             <Button onClick={() => handleAddToCart(product)} className="w-100 cart-btn border-0">
-                Add to Cart <i className="fa-solid fa-cart-plus cart-icon" />
+                Add to Cart <i className="fa-solid fa-cart-plus fw-icon" />
             </Button>
         </Card>
     );
