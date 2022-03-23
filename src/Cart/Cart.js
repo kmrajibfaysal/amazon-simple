@@ -2,17 +2,21 @@ import React from 'react';
 import './Cart.css';
 
 function Cart({ cart }) {
+    // two digit price handler
+    const priceHandler = (x) => Number.parseFloat(x).toFixed(2);
     // Total Price
-    const totalPrice =
-        cart.length > 0 ? cart.map((item) => item.price).reduce((sum, item) => sum + item) : 0;
+    const totalPrice = priceHandler(
+        cart.length > 0 ? cart.map((item) => item.price).reduce((sum, item) => sum + item) : 0
+    );
     // Total shipping charges
-    const shippingCharge =
-        cart.length > 0 ? cart.map((item) => item.shipping).reduce((sum, item) => sum + item) : 0;
+    const shippingCharge = priceHandler(
+        cart.length > 0 ? cart.map((item) => item.shipping).reduce((sum, item) => sum + item) : 0
+    );
     // Total tax charges
-    const tax = Math.ceil(totalPrice * 0.01);
+    const tax = priceHandler(totalPrice * 0.01);
 
     // Grand Total
-    const grandTotal = totalPrice + shippingCharge + tax;
+    const grandTotal = priceHandler(totalPrice + shippingCharge + tax);
     return (
         <div className="cart mt-2 sticky-top pt-4">
             <h4 className="text-center">Order Summary</h4>
