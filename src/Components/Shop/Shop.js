@@ -1,7 +1,9 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import Cart from '../../Cart/Cart';
-import { addToDb } from '../../utilities/fakedb';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Product from '../Product/Product';
 import './Shop.css';
 
@@ -14,10 +16,37 @@ function Shop() {
             .then((data) => setProducts(data));
     }, []);
 
-    const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
+    useEffect(() => {
+        const storedCart = getStoredCart();
+        const savedCart = [];
+
+        for (const key in storedCart) {
+            const addedProduct = products.find((product) => product.id === key);
+            if (addedProduct) {
+                const quantity = storedCart[key];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+        }
+        setCart(savedCart);
+    }, [products]);
+
+    const handleAddToCart = (selectedProduct) => {
+        let newCart = [];
+        const exists = cart.find((product) => product.id === selectedProduct.id);
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        } else {
+            const rest = cart.filter((product) => product.id !== selectedProduct.id);
+            exists.quantity += 1;
+            newCart = [...rest, exists];
+        }
+
+        // const newCart = [...cart, selectedProduct];
+
         setCart(newCart);
-        addToDb(product.id);
+        addToDb(selectedProduct.id);
     };
 
     return (
