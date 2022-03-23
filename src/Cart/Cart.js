@@ -3,7 +3,7 @@ import './Cart.css';
 
 function Cart({ cart }) {
     // two digit price handler
-    const priceHandler = (x) => Number.parseFloat(x).toFixed(2);
+    const priceHandler = (x) => parseInt(Number.parseFloat(x).toFixed(2), 10);
     // Total Price
     const totalPrice = priceHandler(
         cart.length > 0 ? cart.map((item) => item.price).reduce((sum, item) => sum + item) : 0
@@ -14,9 +14,11 @@ function Cart({ cart }) {
     );
     // Total tax charges
     const tax = priceHandler(totalPrice * 0.01);
+    console.log(shippingCharge);
 
     // Grand Total
     const grandTotal = priceHandler(totalPrice + shippingCharge + tax);
+    console.log(totalPrice + shippingCharge + tax);
     return (
         <div className="cart mt-2 sticky-top pt-4">
             <h4 className="text-center">Order Summary</h4>
