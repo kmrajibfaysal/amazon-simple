@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import Cart from '../../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
@@ -19,8 +20,8 @@ function Shop() {
     };
 
     return (
-        <div className="shop-container mt-4 mx-2 row">
-            <div className="products-container col-md-9 col-lg-10">
+        <div className="shop-container  mx-2 row">
+            <div className="products-container col-md-9 col-lg-10 mt-5">
                 <div className="row">
                     {products.map((product) => (
                         <Product
@@ -31,9 +32,8 @@ function Shop() {
                     ))}
                 </div>
             </div>
-            <div className="cart-container col-md-2">
-                <h4>Order Summary</h4>
-                <p>Selected Items: {cart.length}</p>
+            <div className="cart-container col-md-3 col-lg-2">
+                <Cart cart={cart} />
             </div>
         </div>
     );
