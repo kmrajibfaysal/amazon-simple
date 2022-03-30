@@ -1,16 +1,17 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
 function Shop() {
     const [products, setProducts] = useProducts();
-    const [cart, setCart] = useState([]);
+    /* const [cart, setCart] = useState([]);
 
     useEffect(() => {
         const storedCart = getStoredCart();
@@ -25,7 +26,9 @@ function Shop() {
             }
         }
         setCart(savedCart);
-    }, [products]);
+    }, [products]); */
+
+    const [cart, setCart] = useCart(products);
 
     const handleAddToCart = (selectedProduct) => {
         let newCart = [];
