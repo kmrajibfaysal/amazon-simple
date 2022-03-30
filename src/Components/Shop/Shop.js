@@ -2,7 +2,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import Cart from '../../Cart/Cart';
+import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Product from '../Product/Product';
 import './Shop.css';
