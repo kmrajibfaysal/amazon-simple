@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
-function Cart({ cart }) {
+function Cart({ cart, children }) {
     let quantity = 0;
     let total = 0;
     let shipping = 0;
@@ -47,9 +48,12 @@ function Cart({ cart }) {
                 <button className="btn btn-danger w-100 my-2" type="button">
                     Clear Cart <i className="fa-solid fa-trash fw-icon" />
                 </button>
-                <button className="btn btn-warning w-100 my-2 text-white" type="button">
-                    Review Order <i className="fa-solid fa-arrow-right fw-light fw-icon w-100" />
-                </button>
+                <Link to="/orders">
+                    <button className="btn btn-warning w-100 my-2 text-white" type="button">
+                        {children}
+                        <i className="fa-solid fa-arrow-right fw-light fw-icon w-100" />
+                    </button>
+                </Link>
             </div>
         </div>
     );

@@ -2,6 +2,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import { addToDb } from '../../utilities/fakedb';
@@ -62,7 +63,11 @@ function Shop() {
                 </div>
             </div>
             <div className="cart-container col-md-3 col-lg-2">
-                <Cart cart={cart} />
+                <Cart cart={cart}>
+                    <Link to="/orders">
+                        <button type="button">Review Order</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
