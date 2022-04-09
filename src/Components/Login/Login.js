@@ -34,6 +34,18 @@ function Login() {
                 <h6 className="or">
                     <span>or</span>
                 </h6>
+                <div className="google-btn mx-auto">
+                    <div className="google-icon-wrapper">
+                        <img
+                            className="google-icon"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                            alt="Google"
+                        />
+                    </div>
+                    <p className="btn-text">
+                        <b>Continue with google</b>
+                    </p>
+                </div>
             </Form>
         </div>
     );
