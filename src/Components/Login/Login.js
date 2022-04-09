@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 function Login() {
@@ -24,7 +25,10 @@ function Login() {
                     Login
                 </button>
                 <p className="text-center new-signup">
-                    New to Amazon? <span className="orange-text">Create new account</span>
+                    New to Amazon?{' '}
+                    <Link className="orange-text" to="/signup">
+                        Create new account
+                    </Link>
                 </p>
 
                 <h6 className="or">
