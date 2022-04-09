@@ -1,0 +1,69 @@
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+.form-title {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  /* identical to box height */
+
+  letter-spacing: 0.0025em;
+
+  color: #2a414f;
+}
+
+.form {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.login-btn {
+  width: 100%;
+  border: none;
+  height: 45px;
+  background: rgba(255, 153, 0, 0.3);
+  border-radius: 5px;
+  color: #0e161a;
+  
+}
+
+.orange-text {
+  color: #ff9900;
+}
+
+.new-signup {
+  font-size: 15px;
+  margin: 5px auto;
+}
+
+.or {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #95a0a7;
+  width: 90%;
+  text-align: center;
+  border-bottom: 1px solid #95a0a7;
+  line-height: 0.1em;
+  margin: 30px auto;
+}
+
+.or span {
+  background-color: white;
+  padding: 0 20px;
+}
