@@ -46,12 +46,11 @@ function Cart({ cart, children }) {
             </div>
             <div className="mt-5">
                 <button className="btn btn-danger w-100 my-2" type="button">
-                    Clear Cart <i className="fa-solid fa-trash fw-icon" />
+                    Clear Cart
                 </button>
                 <Link to="/orders">
                     <button className="btn btn-warning w-100 my-2 text-white" type="button">
                         {children}
-                        <i className="fa-solid fa-arrow-right fw-light fw-icon w-100" />
                     </button>
                 </Link>
             </div>

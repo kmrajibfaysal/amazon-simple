@@ -1,0 +1,12 @@
+.btn-warning {
+  background-color: #231ff1;
+  border: none;
+  outline: none;
+}
+
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning:focus {
+  background-color: #1b18b8;
+  border: none;
+}

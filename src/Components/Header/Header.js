@@ -7,7 +7,7 @@ import './Header.css';
 function Header() {
     return (
         <nav>
-            <div className="header container">
+            <div className="header">
                 <div>
                     <Link to="/shop" element={<Shop />}>
                         <img src={logo} alt="" />

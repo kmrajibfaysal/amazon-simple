@@ -64,8 +64,8 @@ function Shop() {
             </div>
             <div className="cart-container col-md-3 col-lg-2">
                 <Cart cart={cart}>
-                    <Link to="/orders">
-                        <button type="button">Review Order</button>
+                    <Link to="/orders" className="review-btn">
+                        Review Order
                     </Link>
                 </Cart>
             </div>

@@ -30,7 +30,7 @@ function Orders() {
                 </div>
             </div>
             <div className="cart-container col-md-3 col-lg-2">
-                <Cart cart={cart} />
+                <Cart cart={cart}>Proceed Checkout</Cart>
             </div>
         </div>
     );

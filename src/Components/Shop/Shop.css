@@ -4,3 +4,14 @@
 .fw-icon {
   font-size: 1.25rem;
 }
+
+.review-btn {
+  text-decoration: none;
+  color: white;
+}
+
+.review-btn:hover,
+.review-btn:focus,
+.review-btn:active {
+  color: white;
+}
