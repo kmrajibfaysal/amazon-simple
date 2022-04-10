@@ -1,32 +1,76 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleEmailBlur = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handlePasswordBlur = (event) => {
+        setPassword(event.target.value);
+    };
+
+    const handleConfirmPasswordBlur = (event) => {
+        setConfirmPassword(event.target.value);
+    };
+
+    const handleCreateUser = (event) => {
+        event.preventDefault();
+        if (password !== confirmPassword) {
+            setError('Your two passwords did not match.');
+        }
+    };
+
     return (
         <div className="form-container">
             <h2 className="form-title">Sign Up</h2>
 
-            <Form className="form">
+            <Form onSubmit={handleCreateUser} className="form">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control
+                        onBlur={handleEmailBlur}
+                        type="email"
+                        placeholder="Enter email"
+                        required
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                        onBlur={handlePasswordBlur}
+                        type="password"
+                        placeholder="Password"
+                        required
+                    />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                        onBlur={handleConfirmPasswordBlur}
+                        type="password"
+                        placeholder="Password"
+                        required
+                    />
                 </Form.Group>
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
-                <button className="login-btn fw-normal" type="submit">
-                    Sign Up
-                </button>
+                <p className="text-danger my-3">{error}</p>
+                <input
+                    className="login-btn fw-normal test okay ola"
+                    type="submit"
+                    value="Sign Up"
+                />
+
                 <p className="text-center new-signup">
                     Already have an account?{' '}
                     <Link className="orange-text" to="/login">
