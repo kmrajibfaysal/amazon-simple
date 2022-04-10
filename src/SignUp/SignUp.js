@@ -1,13 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../firebase.init';
 
 function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
 
     const handleEmailBlur = (event) => {
         setEmail(event.target.value);
@@ -25,8 +30,22 @@ function SignUp() {
         event.preventDefault();
         if (password !== confirmPassword) {
             setError('Your two passwords did not match.');
+            return;
         }
+
+        if (password.length < 6) {
+            setError('Your password must be at least 6 characters long.');
+            return;
+        }
+
+        console.log('user created!');
+        console.log(email);
+        createUserWithEmailAndPassword(email, password);
     };
+
+    if (user) {
+        navigate('/home');
+    }
 
     return (
         <div className="form-container">
