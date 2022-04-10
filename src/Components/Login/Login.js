@@ -1,29 +1,70 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Login.css';
 
 function Login() {
+    // *********************************************
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmailBlur = async (event) => {
+        await setEmail(event.target.value);
+    };
+
+    const handlePasswordBlur = async (event) => {
+        await setPassword(event.target.value);
+    };
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        await signInWithEmailAndPassword(email, password);
+
+        if (user) {
+            navigate('/home');
+        }
+    };
+
+    // ************************************************************
     return (
         <div className="form-container">
             <h2 className="form-title">Login</h2>
 
-            <Form className="form">
+            <Form onSubmit={handleLogin} className="form">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" required />
+                    <Form.Control
+                        onBlur={handleEmailBlur}
+                        type="email"
+                        placeholder="Enter email"
+                        required
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" required />
+                    <Form.Control
+                        onBlur={handlePasswordBlur}
+                        type="password"
+                        placeholder="Password"
+                        required
+                    />
                 </Form.Group>
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
-                <button className="login-btn" type="submit">
-                    Login
-                </button>
+                <p className="text-danger my-3">{error?.message}</p>
+                {loading && <p>Loading...</p>}
+
+                <input className="login-btn" type="submit" value="Login" />
+
                 <p className="text-center new-signup">
                     New to Amazon?{' '}
                     <Link className="orange-text" to="/signup">

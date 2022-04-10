@@ -8,7 +8,7 @@ import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import Orders from './Components/Orders/Orders';
 import Shop from './Components/Shop/Shop';
-import SignUp from './SignUp/SignUp';
+import SignUp from './Components/SignUp/SignUp';
 
 function App() {
     return (
