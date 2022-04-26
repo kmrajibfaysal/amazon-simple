@@ -8,7 +8,7 @@ const useCart = (products) => {
         const savedCart = [];
         // eslint-disable-next-line guard-for-in
         for (const id in storedCart) {
-            const addedProduct = products.find((p) => p.id === id);
+            const addedProduct = products.find((p) => p._id === id);
             if (addedProduct) {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;

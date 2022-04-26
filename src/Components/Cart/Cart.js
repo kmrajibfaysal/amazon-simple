@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Cart.css';
 
 function Cart({ cart, children }) {
+    const navigate = useNavigate();
     let quantity = 0;
     let total = 0;
     let shipping = 0;
@@ -45,7 +46,11 @@ function Cart({ cart, children }) {
                 <h6>Grand Total: ${grandTotal} </h6>
             </div>
             <div className="mt-5">
-                <button className="btn btn-danger w-100 my-2" type="button">
+                <button
+                    onClick={() => navigate('/orders')}
+                    className="btn btn-danger w-100 my-2"
+                    type="button"
+                >
                     Clear Cart
                 </button>
                 <Link to="/orders">
